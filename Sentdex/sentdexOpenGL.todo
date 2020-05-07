@@ -1,0 +1,15 @@
+Draw a rotating cube:
+    ✔ Write the program in a functional manner @done (5/05/2020, 1:42:14 pm)
+    ✔ Make the cube OOP @done (5/05/2020, 1:42:24 pm)
+    ✔ Add a square based pyramid @done (5/05/2020, 9:22:12 pm)
+Draw a solid cube:
+    ✔ Use GL_QUADS @done (5/05/2020, 1:42:33 pm)
+    ✔ Add in a ground @done (5/05/2020, 1:42:35 pm)
+Navigate around the space:
+    ☐ Move left and right
+    ☐ Move up and down
+    ☐ Move forward and backward with mouse
+    ☐ Move forward and backwrd with keys
+    ✔ Rotate clockwise and anti-clockwise @done (5/05/2020, 10:27:13 pm)
+Make a cube move within the space:
+    ☐ Move cube by changing its coordinates
