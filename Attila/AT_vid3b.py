@@ -6,22 +6,27 @@ from OpenGL.GL.shaders import compileProgram, compileShader
 vertex_src = """
 # version 330
 
-in vec2 a_position;
+in vec3 a_position;
+in vec3 a_color;
+
+out vec3 v_color;
 
 void main()
 {
-    gl_Position = vec4(a_position, 0.0, 1.0);
+    gl_Position = vec4(a_position, 1.0);
+    v_color = a_color;
 }
 """
 
 fragment_src = """
 # version 330
 
+in vec3 v_color;
 out vec4 out_color;
 
 void main()
 {
-    out_color = vec4(1.0, 0.0, 0.0, 1.0);
+    out_color = vec4(v_color, 1.0);
 }
 """
 
@@ -45,14 +50,12 @@ glfw.make_context_current(window)
 
 vertices = [-0.5, -0.5, 0.0,
              0.5, -0.5, 0.0,
-             0.0,  0.5, 0.0]
-
-colors = [1.0, 0.0, 0.0,
-          0.0, 1.0, 0.0,
-          0.0, 0.0, 1.0]
+             0.0,  0.5, 0.0,
+             1.0, 0.0, 0.0,
+             0.0, 1.0, 0.0,
+             0.0, 0.0, 1.0]
 
 vertices = np.array(vertices, dtype=np.float32)
-colors = np.array(colors, dtype=np.float32)
 
 # Create a compiled shader
 shader = compileProgram(compileShader(vertex_src, GL_VERTEX_SHADER), compileShader(fragment_src, GL_FRAGMENT_SHADER))
@@ -64,9 +67,15 @@ glBindBuffer(GL_ARRAY_BUFFER, VBO)
 
 glBufferData(GL_ARRAY_BUFFER, vertices.nbytes,vertices, GL_STATIC_DRAW)
 
+# The next three lines get the position from the shader
 position = glGetAttribLocation(shader, "a_position")
 glEnableVertexAttribArray(position)
 glVertexAttribPointer(position, 3, GL_FLOAT, GL_FALSE, 0, ctypes.c_void_p(0))
+
+# The next three lines get the color from the shader
+color = glGetAttribLocation(shader, "a_color")
+glEnableVertexAttribArray(color)
+glVertexAttribPointer(color, 3, GL_FLOAT, GL_FALSE, 0, ctypes.c_void_p(36)) # This means the colors start from the 36 byte
 
 # Tell the GPU to use this shader
 glUseProgram(shader)
