@@ -39,3 +39,8 @@ We are going to use the a_color that was giving the name v_color rather than jus
 We have joined the color information to the vertex information we had before.  The amount of information for each point is up to us.
 ### Lines 76-78
 This makes the color information accessible to the shader program. _Line 78_ says not to include the first 36 bytes.
+# AT_vid3b.py
+### Lines 51-53
+We now have the position and colour on the same line.  The first 12 bytes of each line are position and the next 12 are colour.
+### Lines 70 & 75 
+Now have been change to take in 24 bytes at a time and the colours start after 12 of those bytes
