@@ -29,6 +29,8 @@ void main()
     out_color = vec4(v_color, 1.0);
 }
 """
+def window_resize(window, width, height):
+    glViewport(0, 0, width, height)
 
 # initializing glfw library
 if not glfw.init():
@@ -44,6 +46,8 @@ if not window:
 
 # set window's position
 glfw.set_window_pos(window, 400, 200)
+
+glfw.set_window_size_callback(window, window_resize)
 
 # make the context current
 glfw.make_context_current(window)

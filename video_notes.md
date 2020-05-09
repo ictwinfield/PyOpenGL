@@ -39,8 +39,20 @@ We are going to use the a_color that was giving the name v_color rather than jus
 We have joined the color information to the vertex information we had before.  The amount of information for each point is up to us.
 ### Lines 76-78
 This makes the color information accessible to the shader program. _Line 78_ says not to include the first 36 bytes.
-# AT_vid3b.py
+# AT_vid3c.py
 ### Lines 51-53
 We now have the position and colour on the same line.  The first 12 bytes of each line are position and the next 12 are colour.
 ### Lines 70 & 75 
 Now have been change to take in 24 bytes at a time and the colours start after 12 of those bytes
+# AT_vid4a.py
+### Lines 9-10
+Here we have added layout location, this means that we will not need glGetAttribLocation later.
+### Lines 69-74
+These lines now use the location of the data
+### Line 91
+We now use GL_TRIANGLE_STRIP 1st triangle with 3 vertices starting at index 0, next triangle starting at index 1 and so on.
+# AT_vid4b.py
+### Lines 32-33
+We create a function that we will access via a callback.  The function sets the size of the viewport
+### Line 50
+Here we use the glfw to call the previous function whenever the user attempts to change the size of the window.  The user was always able to change the size of the window, but before the viewport did not change with it.

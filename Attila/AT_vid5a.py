@@ -29,6 +29,8 @@ void main()
     out_color = vec4(v_color, 1.0);
 }
 """
+def window_resize(window, width, height):
+    glViewport(0, 0, width, height)
 
 # initializing glfw library
 if not glfw.init():
@@ -45,6 +47,8 @@ if not window:
 # set window's position
 glfw.set_window_pos(window, 400, 200)
 
+glfw.set_window_size_callback(window, window_resize)
+
 # make the context current
 glfw.make_context_current(window)
 
@@ -53,7 +57,11 @@ vertices = [-0.5, -0.5, 0.0, 1.0, 0.0, 0.0,
              -0.5,  0.5, 0.0, 1.0, 0.0, 0.5,
              0.5, 0.5, 0.5, 0.5, 1.0, 0.5]
 
+indices = [0, 1, 2,
+           1, 2, 3]
+
 vertices = np.array(vertices, dtype=np.float32)
+indices = np.array(indices, dtype=np.uint32)
 
 # Create a compiled shader
 shader = compileProgram(compileShader(vertex_src, GL_VERTEX_SHADER), compileShader(fragment_src, GL_FRAGMENT_SHADER))
@@ -62,8 +70,12 @@ shader = compileProgram(compileShader(vertex_src, GL_VERTEX_SHADER), compileShad
 VBO = glGenBuffers(1)
 # We now bind the VBO to the GL_ARRAY_BUFFER
 glBindBuffer(GL_ARRAY_BUFFER, VBO)
-
 glBufferData(GL_ARRAY_BUFFER, vertices.nbytes,vertices, GL_STATIC_DRAW)
+
+# Create the element buffer object
+EBO = glGenBuffers(1)
+glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO)
+glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.nbytes, indices, GL_STATIC_DRAW)
 
 # The next two lines get the position from the shader
 glEnableVertexAttribArray(0)
@@ -88,7 +100,7 @@ while not glfw.window_should_close(window):
 
     glLoadIdentity()
 
-    glDrawArrays(GL_TRIANGLE_STRIP, 0, 4)
+    glDrawElements(GL_TRIANGLES, len(indices), GL_UNSIGNED_INT, None)
 
     glfw.swap_buffers(window)
 
