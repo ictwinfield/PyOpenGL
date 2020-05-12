@@ -56,3 +56,17 @@ We now use GL_TRIANGLE_STRIP 1st triangle with 3 vertices starting at index 0, n
 We create a function that we will access via a callback.  The function sets the size of the viewport
 ### Line 50
 Here we use the glfw to call the previous function whenever the user attempts to change the size of the window.  The user was always able to change the size of the window, but before the viewport did not change with it.
+# AT_vid9a.py
+### vertex_src
+Two uniforms, one for the transformation which consists of a translation and a rotation and one for the projection onto the world space.
+The gl_position is formed by matrix multiplication on the vector.
+### vertices Line 62...
+Since we are only using texture we have removed the colour values.
+### Line 143 
+We create a projection matrix effectively makes the world view.
+### Line 144
+We create the transformation that acts on the cube.
+### Lines 146-147
+We just get the location of the uniforms within the vertex shader.
+### Lines 149 and 163
+These are the lines that assign the matrix transformations with vaiables in the shader program
