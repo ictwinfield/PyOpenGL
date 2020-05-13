@@ -89,7 +89,7 @@ glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, vertices.itemsize * 5, ctypes.c_
 texture = glGenTextures(2)
 
 cube_texture1 = load_texture("/home/melvin/Documents/Python/OpenGL/Attila/textures/crate.jpg", texture[0])
-cube_texture2 = load_texture("/home/melvin/Documents/Python/OpenGL/Attila/textures/cat.png", texture[1])
+cube_texture2 = load_texture("/home/melvin/Documents/Python/OpenGL/Attila/textures/brick.jpg", texture[1])
 
 
 glUseProgram(shader)
@@ -121,7 +121,7 @@ while not glfw.window_should_close(window):
     glDrawElements(GL_TRIANGLES, len(indices), GL_UNSIGNED_INT, None)
 
     # Draw cube 2
-    glBindTexture(GL_TEXTURE_2D, texture[0])
+    glBindTexture(GL_TEXTURE_2D, texture[1])
     glUniformMatrix4fv(transformation_loc, 1, GL_FALSE, cube2_translation)
     glDrawElements(GL_TRIANGLES, len(indices), GL_UNSIGNED_INT, None)
 

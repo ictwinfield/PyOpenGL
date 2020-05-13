@@ -51,7 +51,7 @@ glfw.make_context_current(window)
 vertices = [-0.5, -0.5, 0.0, 1.0, 0.0, 0.0,
              0.5, -0.5, 0.0, 1.0, 0.5, 0.0,
              -0.5,  0.5, 0.0, 1.0, 0.0, 0.5,
-             0.5, 0.5, 0.5, 0.5, 1.0, 0.5]
+             0.5, 0.5, 0.0, 0.5, 1.0, 0.5]
 
 vertices = np.array(vertices, dtype=np.float32)
 
