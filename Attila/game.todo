@@ -1,9 +1,9 @@
 Move a cube:
-    ☐ Draw a line
-    ☐ Draw a grid
-    ☐ Draw the ground
-    ☐ Move cube with loop against ground
-    ☐ Move cube foward and backwards with keys
-    ☐ Move cube right and left with keys
+    ✔ Draw a line @done (15/05/2020, 9:56:59 pm)
+    ✔ Draw a grid @done (15/05/2020, 9:57:03 pm)
+    ✔ Draw the ground @done (15/05/2020, 9:57:11 pm)
+    ✔ Move cube with loop against ground @done (15/05/2020, 9:57:17 pm)
+    ✔ Move cube foward and backwards with keys @done (16/05/2020, 4:49:24 pm)
+    ✔ Move cube right and left with keys @done (16/05/2020, 4:49:26 pm)
 Change view around cube:
     ☐ Move camera towards cube with keys

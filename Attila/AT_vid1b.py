@@ -4,7 +4,7 @@ def key_pressed(window, key, scancode, action, mods):
     if key == 69:
         print("You pressed E")
     else:
-        print("A key was pressed")
+        print("A key was pressed" + str(key))
 
 def main():
     if not glfw.init():
