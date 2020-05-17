@@ -117,7 +117,7 @@ void main()
         self.shader = compileProgram(compileShader(TriangleWindow.vertex_src, GL_VERTEX_SHADER), compileShader(TriangleWindow.fragment_src, GL_FRAGMENT_SHADER))
 
     def render(self, gl):
-        gl.glViewport(0, 0, self.width(), self.height())
+        glViewport(0, 0, self.width(), self.height())
 
         glClear(GL_COLOR_BUFFER_BIT)
 
