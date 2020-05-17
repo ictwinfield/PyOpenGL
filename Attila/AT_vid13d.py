@@ -44,7 +44,8 @@ void main()
     
 }
 """
-
+count = [True, True]
+y_vel = [0]
 # glfw callback functions
 def window_resize(window, width, height):
     glViewport(0, 0, width, height)
@@ -67,7 +68,11 @@ def key_pressed(window, key, scancode, action, mods):
         z = 0.1
         x = 0
     
-    move_cube(x, z)
+    if count[0]:
+        move_cube(x, z)
+        count[0] = False
+    else:
+        count[0] = True
 
 def move_cube(x, z):
     my_cube.move(x, 0, z)
