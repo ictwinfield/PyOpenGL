@@ -117,7 +117,7 @@ while not glfw.window_should_close(window):
 
     ct = glfw.get_time()  # returns the elapsed time, since init was called
 
-    glLoadIdentity()
+    # glLoadIdentity()
 
     glDrawElements(GL_TRIANGLES, len(indices), GL_UNSIGNED_INT, None)
 
