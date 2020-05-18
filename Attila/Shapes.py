@@ -84,6 +84,7 @@ class Cube():
         self.x = 0
         self.y = 0
         self.z = 0
+        self.vert = 0
 
         self.VAO = glGenVertexArrays(1)
         glBindVertexArray(self.VAO)
@@ -105,6 +106,15 @@ class Cube():
         glVertexAttribPointer(self.a_tex, 2, GL_FLOAT, GL_FALSE, self.vertices.itemsize * 5, ctypes.c_void_p(self.off_set))
     
     def draw(self, switcher):
+        if self.vert != 0:
+            self.vert -= 0.01
+            self.move(0, self.vert, 0)
+            if self.y < 0.0:
+                self.y = 0.0
+                self.vert = 0
+        if self.vert == 0 and self.y != 0:
+            self.move(0, -self.y, o)
+            
         glUniform1i(switcher, 0)
         glBindVertexArray(self.VAO)
         glBindTexture(GL_TEXTURE_2D, self.texture)
@@ -113,7 +123,7 @@ class Cube():
     
     def move(self, x, y, z):
         self.x += x
-        self.y +=y
+        self.y += y
         self.z += z
         self.pos = pyrr.matrix44.create_from_translation(pyrr.Vector3([self.x, self.y, self.z]))
 
