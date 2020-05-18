@@ -49,21 +49,11 @@ void main()
         
 
     def initialize(self):
-        vertices = [-0.5, -0.5, 0.5, 1.0, 0.0, 0.0,
-                    0.5, -0.5, 0.5, 1.0, 0.5, 0.0,
-                    0.5,  0.5, 0.5, 1.0, 0.0, 0.5,
-                    -0.5, 0.5, 0.5, 0.5, 1.0, 0.5,
-                    -0.5, -0.5, -0.5, 1.0, 0.0, 0.0,
-                    0.5, -0.5, -0.5, 1.0, 0.5, 0.0,
-                    0.5,  0.5, -0.5, 1.0, 0.0, 0.5,
-                    -0.5, 0.5, -0.5, 0.5, 1.0, 0.5]
+        vertices = [-0.5, 0.0, -0.5, 1.0, 0.0, 0.0,
+                    0.5, -0.0, -0.5, 1.0, 0.5, 0.0,
+                    0.0,  0.0, 0.5, 1.0, 0.0, 0.5]
 
-        self.indices = [0, 1, 2, 0, 2, 3,
-                    4, 5, 6, 6, 7, 4,
-                    4, 5, 1, 1, 0, 4,
-                    6, 7, 3, 3, 2, 6,
-                    5, 6, 2, 2, 1, 5,
-                    7, 4, 0, 0, 3, 7]
+        self.indices = [0, 1, 2]
 
         vertices = np.array(vertices, dtype=np.float32)
         self.indices = np.array(self.indices, dtype=np.uint32)
@@ -90,8 +80,9 @@ void main()
 
         glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)        
        
-        rot_x = pyrr.Matrix44.from_x_rotation(0.001 * self.m_frame)
-        rot_y = pyrr.Matrix44.from_y_rotation(0.02 * self.m_frame)
+        rot_x = pyrr.Matrix44.from_x_rotation(3.141952/2)
+        rot_y = pyrr.Matrix44.from_y_rotation(0.03 * self.m_frame)
+        # rot_y = pyrr.Matrix44.from_y_rotation(0)
         glUniformMatrix4fv(self.rotation, 1, GL_FALSE, pyrr.matrix44.multiply(rot_x, rot_y))
         # glUniformMatrix4fv(self.rotation, 1, GL_FALSE, rot_x @ rot_y)
 
