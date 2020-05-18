@@ -82,9 +82,7 @@ void main()
        
         rot_x = pyrr.Matrix44.from_x_rotation(3.141952/2)
         rot_y = pyrr.Matrix44.from_y_rotation(0.03 * self.m_frame)
-        # rot_y = pyrr.Matrix44.from_y_rotation(0)
         glUniformMatrix4fv(self.rotation, 1, GL_FALSE, pyrr.matrix44.multiply(rot_x, rot_y))
-        # glUniformMatrix4fv(self.rotation, 1, GL_FALSE, rot_x @ rot_y)
 
 
         glDrawElements(GL_TRIANGLES, len(self.indices), GL_UNSIGNED_INT, None)
