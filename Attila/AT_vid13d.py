@@ -76,35 +76,25 @@ def key_pressed(window, key, scancode, action, mods):
     compass = sum(states)
     if compass == 10:
         x = -0.1
-        z = 0.1
+        z = -0.1
     elif compass == 9:
         x = -0.1
-        z = -0.1
+        z = 0.1
     elif compass == 8:
         x = -0.1
     elif compass == 6:
         x = 0.1
-        z = 0.1
+        z = -0.1
     elif compass == 5:
         x = 0.1
-        z = -0.1
+        z = 0.1
     elif compass == 4:
         x = 0.1
     elif compass == 2:
-        z = 0.1"""
-    if key == 65:
-        x = -0.1
-        z = 0
-    elif key == 83:
-        x = 0.1
-        z = 0
-    if key == 80:
         z = -0.1
-        x = 0
-    elif key == 76:
+    elif compass == 1:
         z = 0.1
-        x = 0
-    """
+    
     if key == 32 and my_cube.vert == 0:
         my_cube.vert = 0.159       
     if count[0]:
