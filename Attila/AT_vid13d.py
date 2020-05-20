@@ -52,9 +52,46 @@ def window_resize(window, width, height):
     projection = pyrr.matrix44.create_perspective_projection_matrix(45, width / height, 0.1, 100)
     glUniformMatrix4fv(proj_loc, 1, GL_FALSE, projection)
 
+states = [0, 0, 0, 0]
 def key_pressed(window, key, scancode, action, mods):
     x = 0
     z = 0
+    
+    if key == 65 and action == 1 and states[1] == 0:
+        states[0] = 8
+    if key == 83 and action == 1 and states[0] == 0:
+        states[1] = 4
+    if key == 80 and action == 1 and states[3] == 0:
+        states[2] = 2
+    if key == 76 and action == 1 and states[2] == 0:
+        states[3] = 1
+    if key == 65 and action == 0:
+        states[0] = 0
+    if key == 83 and action == 0:
+        states[1] = 0
+    if key == 80 and action == 0:
+        states[2] = 0
+    if key == 76 and action == 0:
+        states[3] = 0
+    compass = sum(states)
+    if compass == 10:
+        x = -0.1
+        z = 0.1
+    elif compass == 9:
+        x = -0.1
+        z = -0.1
+    elif compass == 8:
+        x = -0.1
+    elif compass == 6:
+        x = 0.1
+        z = 0.1
+    elif compass == 5:
+        x = 0.1
+        z = -0.1
+    elif compass == 4:
+        x = 0.1
+    elif compass == 2:
+        z = 0.1"""
     if key == 65:
         x = -0.1
         z = 0
@@ -67,6 +104,7 @@ def key_pressed(window, key, scancode, action, mods):
     elif key == 76:
         z = 0.1
         x = 0
+    """
     if key == 32 and my_cube.vert == 0:
         my_cube.vert = 0.159       
     if count[0]:
@@ -74,6 +112,8 @@ def key_pressed(window, key, scancode, action, mods):
         count[0] = False
     else:
         count[0] = True
+    
+    # move_cube(x, z)
 
 def move_cube(x, z):
     my_cube.move(x, 0, z)
