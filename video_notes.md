@@ -1,46 +1,46 @@
 # Contents
 1. #### Vid1a
-   - Draw a window
+    - Draw a window
 2. #### Vid1b
-   - Introduce looking for key presses
+    - Introduce looking for key presses
 3. #### Vid2a
-   - Draw a tiangle using depricated methods
+    - Draw a tiangle using depricated methods
 4. #### Vid3a
-   - Draw a triangle using modern OpenGl
-   - Vertices and colours kept seperate
-   - Colour not used
+    - Draw a triangle using modern OpenGl
+    - Vertices and colours kept seperate
+    - Colour not used
 5. #### Vid3b
-   - Colour list is now joined to end of vertices list
-   - color attribute added to shader
-   - Different colours shown
+    - Colour list is now joined to end of vertices list
+    - color attribute added to shader
+    - Different colours shown
 6. #### Vid3c
-   - Now a vertex consists of position and colour
+    - Now a vertex consists of position and colour
 7. #### Vid4a
-   - Using layout location to refer to attributes
-   - GL_TRIANGLE_STRIP used for triangles
+    - Using layout location to refer to attributes
+    - GL_TRIANGLE_STRIP used for triangles
 8. #### Vid4b
-   - Can now change the size of the window
+    - Can now change the size of the window
 9. #### Vid5a
-   - Indices introduced.  This allows the reusing of vertices
-   - Now need to use element buffer object
+    - Indices introduced.  This allows the reusing of vertices
+    - Now need to use element buffer object
 10. #### Vid6a
-   - Draw a cube
-   - Rotation using pyrr
+    - Draw a cube
+    - Rotation using pyrr
 11. #### Vid7a
-   - Texture added
+    - Texture added
 12. #### Vid7b
-   - Code simplified by placing blocks of repeated code in outside file.
+    - Code simplified by placing blocks of repeated code in outside file.
 13. #### Vid9a
    - Projection and translation introduced
 14. #### Vid10a
-   - How to have more than 1 object
+    - How to have more than 1 object
 15. #### Vid13a
-   - How to have more than 1 kind of object
+    - How to have more than 1 kind of object
 16. #### Vid13c
-   - Ground grid introduced
-   - translation moved into while loop to give animation
+    - Ground grid introduced
+    - translation moved into while loop to give animation
 17. #### Vid13d
-   - Cube movement acted on by keys
+    - Cube movement acted on by keys
 
 ## AT_vid3a.py
 ### Lines 6-15

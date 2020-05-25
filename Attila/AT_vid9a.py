@@ -117,6 +117,11 @@ glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, vertices.itemsize * 5, ctypes.c_
 glEnableVertexAttribArray(1)
 glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, vertices.itemsize * 5, ctypes.c_void_p(12))
 
+# load image
+image = Image.open("/home/melvin/Documents/Python/OpenGL/Attila/textures/crate.jpg")
+image = image.transpose(Image.FLIP_TOP_BOTTOM)
+img_data = image.convert("RGBA").tobytes()
+
 texture = glGenTextures(1)
 glBindTexture(GL_TEXTURE_2D, texture)
 
@@ -127,11 +132,6 @@ glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT)
 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR)
 glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR)
 
-# load image
-image = Image.open("/home/melvin/Documents/Python/OpenGL/Attila/textures/crate.jpg")
-image = image.transpose(Image.FLIP_TOP_BOTTOM)
-img_data = image.convert("RGBA").tobytes()
-# img_data = np.array(image.getdata(), np.uint8) # second way of getting the raw image data
 glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.width, image.height, 0, GL_RGBA, GL_UNSIGNED_BYTE, img_data)
 
 glUseProgram(shader)

@@ -96,7 +96,7 @@ def key_pressed(window, key, scancode, action, mods):
         z = 0.1
     
     if key == 32 and my_cube.vert == 0:
-        my_cube.vert = 0.159       
+        my_cube.vert = 0.157       
     if count[0]:
         move_cube(x, z)
         count[0] = False
